@@ -31,10 +31,10 @@ public class TreeNode {
     }
 
     public static TreeNode fromPre(String data) {
-        return TreeCodecFactory.getCodec(TreeCodecFactory.LEVEL).deserialize(data);
+        return TreeCodecFactory.getCodec(TreeCodecFactory.PRE).deserialize(data);
     }
 
     public static TreeNode fromPost(String data) {
-        return TreeCodecFactory.getCodec(TreeCodecFactory.LEVEL).deserialize(data);
+        return TreeCodecFactory.getCodec(TreeCodecFactory.POST).deserialize(data);
     }
 }

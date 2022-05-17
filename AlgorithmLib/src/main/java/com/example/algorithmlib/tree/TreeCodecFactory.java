@@ -189,6 +189,7 @@ public class TreeCodecFactory {
             for (int i = 1; i < nodes.length; ) {
                 // 队列中存的都是父节点
                 TreeNode parent = q.poll();
+
                 // 父节点对应的左侧子节点的值
                 String left = nodes[i++];
                 if (!left.equals(NULL)) {
@@ -199,7 +200,11 @@ public class TreeCodecFactory {
                     assert parent != null;
                     parent.left = null;
                 }
-                // 父节点对应的右侧子节点的值
+                // 父节点对应的右侧子节点的值，力扣样板尾部null会省略
+                // eg. 1,null,2,3,null,null,null,力扣展示为1,null,2,3
+                if (i == nodes.length) {
+                    break;
+                }
                 String right = nodes[i++];
                 if (!right.equals(NULL)) {
                     parent.right = new TreeNode(Integer.parseInt(right));
